@@ -1,23 +1,21 @@
 import './App.css';
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import GitHubUserList from './components/GitHubUserList.js';
+import UserSearchForm from './components/UserSearchForm.js';
 
 const App = () => {
   const [listOfUsers, setUsers] = useState([]);
 
-  const fetchUsers = async () => {
-    const users = await axios.get('https://api.github.com/search/users?q=example');
+  const fetchUsers = async (username) => {
+    const users = await axios.get(`https://api.github.com/search/users?q=${username}`);
     setUsers(users.data.items);
   }
-
-  useEffect(() => {
-    fetchUsers();
-  })
 
   return (
     <>
       Rendered the app!
+      <UserSearchForm fetchUsers={fetchUsers} />
     </>
   )
 }
