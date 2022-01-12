@@ -15,15 +15,16 @@ const App = () => {
     let someUsers = [];
     for (let i = 0; i < 10; i++) {
       let userObj = {};
-      userObj.username = 'mealthebear';
+      userObj.username = 'abc';
       userObj.image = 'https://media.istockphoto.com/photos/happy-shiba-inu-dog-on-yellow-redhaired-japanese-dog-smile-portrait-picture-id1197121742?k=20&m=1197121742&s=612x612&w=0&h=HX4DoFCL1RDlegj3P9w4O2H64sgwKvMP0VSki7sBEtE=';
+      userObj.url = 'http://github.com';
       userObj.stargazerCount = 1;
       userObj.followerCount = 5;
       userObj.repoCount = 14;
       someUsers.push(userObj);
     };
     let coolObj = {
-      username: 'Banana Boat',
+      username: 'xyz',
       image: 'https://image.shutterstock.com/image-photo/portrait-beautiful-chic-red-shiba-260nw-1432450229.jpg',
       stargazerCount: 55,
       repoCount: 37,
@@ -36,7 +37,7 @@ const App = () => {
     console.log(maxPages);
     let resultsPerPage = 10;
     let maxNumOfPages = Math.ceil((someUsers.length + secondList.length) / resultsPerPage);
-    setTotalResults((someUsers.length + secondList.length))
+    setTotalResults((someUsers.length + secondList.length));
     setMaxPages(maxNumOfPages);
     setPagination(allUsers);
   }, []);
@@ -73,6 +74,7 @@ const App = () => {
       let userInfo = {};
       userInfo.username = users[i].login;
       userInfo.image = users[i].avatar_url;
+      userInfo.url = users[i].html_url;
       let repos = await axios.get(users[i].repos_url);
       userInfo.repoCount = repos.data.length;
       let stargazers = 0;

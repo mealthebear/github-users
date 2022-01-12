@@ -7,7 +7,7 @@ const GitHubUserEntry = ({ userInfo }) => {
         {userInfo.username}
       </div>
       <div className='user-image'>
-        <img src={userInfo.image} />
+        <a href={userInfo.url}><img src={userInfo.image} /></a>
       </div>
       <div className='user-stat'>Number of repos: {userInfo.repoCount}</div>
       <div className='user-stat'>Number of stargazers: {userInfo.stargazerCount}</div>
