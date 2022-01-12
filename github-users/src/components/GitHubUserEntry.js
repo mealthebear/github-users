@@ -1,17 +1,17 @@
 import React from 'react';
 
-const GitHubUserEntry = ({ imageURL, userInfo }) => {
+const GitHubUserEntry = ({ userInfo }) => {
   return (
     <div>
-      <div className='user-image'>
-        <img src={imageURL} />
+      <div className='user-name'>
+        {userInfo.username}
       </div>
-      {userInfo.map((stat, i) => {
-        return <div className='user-info' index={i}>
-          <div className='info-title'>{stat.title}</div>
-          <div clasName='info-value'>{stat.value}</div>
-        </div>
-      })}
+      <div className='user-image'>
+        <img src={userInfo.image} />
+      </div>
+      <div className='user-stat'>Number of repos: {userInfo.repoCount}</div>
+      <div className='user-stat'>Number of stargazers: {userInfo.stargazerCount}</div>
+      <div className='user-stat'>Number of followers: {userInfo.followerCount}</div>
     </div>
   )
 }
