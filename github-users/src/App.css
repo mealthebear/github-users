@@ -147,3 +147,43 @@
 .arrow {
   cursor: pointer;
 }
+
+@media screen and (max-width: 800px) {
+  .input {
+    font-size: 20px;
+  }
+
+  .user-image {
+    margin: 8px auto 24px;
+  }
+
+  .profile-photo {
+    height: 192px;
+    width: 192px;
+  }
+
+  .user-profile {
+    display: flex;
+    width: 100%;
+  }
+
+  .user-entry {
+    flex-flow: column wrap;
+    margin: 32px 0px;
+  }
+
+  .user-stats {
+    width: 100%;
+  }
+
+  .user-stat {
+    margin: 8px 0px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .input {
+    font-size: 16px;
+    margin: 0px 4px;
+  }
+}
