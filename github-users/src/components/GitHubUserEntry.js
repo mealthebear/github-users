@@ -12,9 +12,9 @@ const GitHubUserEntry = ({ userInfo }) => {
         </div>
       </div>
       <div className='user-stats'>
-        <div className='user-stat'>Number of repos: {userInfo.repoCount}</div>
-        <div className='user-stat'>Number of stargazers: {userInfo.stargazerCount}</div>
-        <div className='user-stat'>Number of followers: {userInfo.followerCount}</div>
+        <div className='user-stat'>Number of Repositories: {userInfo.repoCount}</div>
+        <div className='user-stat'>Number of Stargazers: {userInfo.stargazerCount}</div>
+        <div className='user-stat'>Number of Followers: {userInfo.followerCount}</div>
       </div>
     </div>
   )

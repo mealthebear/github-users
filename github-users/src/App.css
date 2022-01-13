@@ -68,8 +68,16 @@
   width: 50%;
 }
 
+.user-stat {
+  background-color: lightskyblue;
+  border-radius: 36px;
+  font-size: 24px;
+  padding: 16px;
+}
+
 .user-name {
   font-size: 36px;
+  margin: 0px 0px 24px;
   text-align: center;
 }
 
