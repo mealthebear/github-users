@@ -22,7 +22,7 @@ const PageScroller = ({ maxPages, pageNumber, setPage }) => {
       >
         {'<'}
       </div>
-      <div className='page-number'>{pageNumber}</div>
+      <div className='page-number'>Page {pageNumber} of {maxPages}</div>
       <div 
         className='arrow'
         disabled={maxPages === pageNumber ? true : false}
