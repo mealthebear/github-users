@@ -78,6 +78,7 @@
 .result-total {
   font-size: 28px;
   margin: 8px 0px;
+  text-align: center;
 }
 
 .list-of-users {
@@ -186,8 +187,13 @@
     font-size: 24px;
     padding: 8px 24px;
   }
+
   .input {
     font-size: 16px;
     margin: 0px 4px;
+  }
+
+  .page-scroller {
+    width: 90%;
   }
 }
