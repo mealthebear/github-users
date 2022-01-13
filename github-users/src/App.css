@@ -95,3 +95,16 @@
   height: 256px;
   width: 256px;
 }
+
+.page-scroller {
+  display: flex;
+  flex-flow: row;
+  font-size: 36px;
+  justify-content: space-evenly;
+  margin: 36px auto;
+  width: 65%;
+}
+
+.arrow {
+  cursor: pointer;
+}
