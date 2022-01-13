@@ -94,7 +94,6 @@ const App = () => {
 
   return (
     <>
-      Rendered the app!
       <UserSearchForm fetchUsers={fetchUsers} />
       {paginatedUsers ?
         <GitHubUserList
