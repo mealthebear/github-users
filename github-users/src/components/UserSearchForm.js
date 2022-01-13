@@ -14,10 +14,10 @@ const UserSearchForm = ({ fetchUsers }) => {
 
   return (
     <div className='search-form'>
-      <h2>Look up users on GitHub!</h2>
+      <h2 className='form-title'>Look up users on GitHub!</h2>
       <form onSubmit={handleSubmit}>
-        <input type='text' onChange={handleChange} placeholder='Search for users' />
-        <input type='submit' value='Search' />
+        <input className='input form-input' type='text' onChange={handleChange} placeholder='Search for users' />
+        <input className='input form-submit' type='submit' value='Search' />
       </form>
     </div>
   )
