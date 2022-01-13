@@ -1,6 +1,6 @@
 import './App.css';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import GitHubUserList from './components/GitHubUserList.js';
 import UserSearchForm from './components/UserSearchForm.js';
 import LoadingCircle from './components/LoadingCircle.js';
@@ -50,8 +50,6 @@ const App = () => {
       usersPerPage = listOfUsers.length;
     };
     let numberOfPages = Math.ceil(listOfUsers.length / usersPerPage);
-    console.log('We called paginateResults');
-    console.log(usersPerPage, numberOfPages, listOfUsers, '***PAGINATE STATS***');
     setMaxPages(numberOfPages);
     const paginatedResults = [];
     for (let i = 0; i < numberOfPages; i++) {
@@ -61,13 +59,10 @@ const App = () => {
         if (currentUser >= listOfUsers.length) {
           break;
         }
-        console.log(currentUser, 'THIS IS CURRENT USER INDEX***');
         currentPageList.push(listOfUsers[currentUser]);
-        console.log(currentPageList, 'THIS IS THE CURRENT USER LIST***');
       }
       paginatedResults.push(currentPageList);
     }
-    console.log(paginatedResults, 'FOR LOOP FINISHED***');
     setLoading(false);
     setPagination(paginatedResults);
   }
@@ -93,7 +88,6 @@ const App = () => {
       userInfo.followerCount = followers.data.length;
       listOfUsers.push(userInfo);
     }
-    console.log(listOfUsers, '**** THIS IS USER INFO!!! *****');
     setTotalResults(listOfUsers.length);
     paginateResults(listOfUsers);
   }

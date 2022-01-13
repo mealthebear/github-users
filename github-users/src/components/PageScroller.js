@@ -7,9 +7,7 @@ const PageScroller = ({ maxPages, pageNumber, setPage }) => {
   }
 
   const incrementPage = () => {
-    console.log('INVOKED INCREMENT FUNCTION***');
     const currentPage = (pageNumber + 1);
-    console.log(currentPage, 'THIS IS THE NEWLY INCREMENTED PAGE NUMBER');
     setPage(currentPage);
   }
 
