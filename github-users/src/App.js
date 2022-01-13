@@ -98,10 +98,6 @@ const App = () => {
     paginateResults(listOfUsers);
   }
 
-  const toggleLoading = () => {
-    setLoading(!isLoading);
-  }
-
   return (
     <>
       <UserSearchForm fetchUsers={fetchUsers} />
