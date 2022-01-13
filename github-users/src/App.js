@@ -13,7 +13,7 @@ const App = () => {
   // useEffect(() => {
   //   let allUsers = [];
   //   let someUsers = [];
-  //   for (let i = 0; i < 10; i++) {
+  //   for (let i = 0; i < 5; i++) {
   //     let userObj = {};
   //     userObj.username = 'abc';
   //     userObj.image = 'https://media.istockphoto.com/photos/happy-shiba-inu-dog-on-yellow-redhaired-japanese-dog-smile-portrait-picture-id1197121742?k=20&m=1197121742&s=612x612&w=0&h=HX4DoFCL1RDlegj3P9w4O2H64sgwKvMP0VSki7sBEtE=';
@@ -35,7 +35,7 @@ const App = () => {
   //   allUsers.push(someUsers);
   //   allUsers.push(secondList);
   //   console.log(maxPages);
-  //   let resultsPerPage = 10;
+  //   let resultsPerPage = 5;
   //   let maxNumOfPages = Math.ceil((someUsers.length + secondList.length) / resultsPerPage);
   //   setTotalResults((someUsers.length + secondList.length));
   //   setMaxPages(maxNumOfPages);
@@ -43,8 +43,8 @@ const App = () => {
   // }, []);
 
   const paginateResults = (listOfUsers) => {
-    let usersPerPage = 10; // Hard-coded for now
-    if (listOfUsers.length < 10) {
+    let usersPerPage = 5; // Hard-coded for now
+    if (listOfUsers.length < 5) {
       usersPerPage = listOfUsers.length;
     };
     let numberOfPages = Math.ceil(listOfUsers.length / usersPerPage);
@@ -56,6 +56,9 @@ const App = () => {
       let currentPageList = [];
       for (let j = 0; j < usersPerPage; j++) {
         let currentUser = (i * usersPerPage) + j
+        if (currentUser >= listOfUsers.length) {
+          break;
+        }
         console.log(currentUser, 'THIS IS CURRENT USER INDEX***');
         currentPageList.push(listOfUsers[currentUser]);
         console.log(currentPageList, 'THIS IS THE CURRENT USER LIST***');
@@ -67,7 +70,7 @@ const App = () => {
   }
 
   const fetchUsers = async (username) => {
-    const usersRetrieved = await axios.get(`https://api.github.com/search/users?q=${username}`);
+    const usersRetrieved = await axios.get(`https://api.github.com/search/users?q=${username}&per_page=12`);
     const users = usersRetrieved.data.items;
     const listOfUsers = [];
     for (let i = 0; i < users.length; i++) {
