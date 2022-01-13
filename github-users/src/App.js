@@ -3,8 +3,10 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import GitHubUserList from './components/GitHubUserList.js';
 import UserSearchForm from './components/UserSearchForm.js';
+import LoadingCircle from './components/LoadingCircle.js';
 
 const App = () => {
+  const [isLoading, setLoading] = useState(false);
   const [totalResults, setTotalResults] = useState(0);
   const [paginatedUsers, setPagination] = useState(null);
   const [currentPage, setPage] = useState(1);
@@ -66,10 +68,12 @@ const App = () => {
       paginatedResults.push(currentPageList);
     }
     console.log(paginatedResults, 'FOR LOOP FINISHED***');
+    setLoading(false);
     setPagination(paginatedResults);
   }
 
   const fetchUsers = async (username) => {
+    setLoading(true);
     const usersRetrieved = await axios.get(`https://api.github.com/search/users?q=${username}&per_page=12`);
     const users = usersRetrieved.data.items;
     const listOfUsers = [];
@@ -94,9 +98,14 @@ const App = () => {
     paginateResults(listOfUsers);
   }
 
+  const toggleLoading = () => {
+    setLoading(!isLoading);
+  }
+
   return (
     <>
       <UserSearchForm fetchUsers={fetchUsers} />
+      {isLoading ? <LoadingCircle /> : null}
       {paginatedUsers ?
         <GitHubUserList
           currentPage={currentPage}
