@@ -37,7 +37,11 @@ const App = () => {
 
   const fetchUsers = async (username) => {
     setLoading(true);
-    const usersRetrieved = await axios.get(`https://api.github.com/search/users?q=${username}&per_page=12`);
+    const usersRetrieved = await axios.get(`https://api.github.com/search/users?q=${username}&per_page=12`, {
+      headers: {
+        Authorization: `Bearer ${process.env.GH_API_TOKEN}`
+      }
+    });
     const users = usersRetrieved.data.items;
     const listOfUsers = [];
     for (let i = 0; i < users.length; i++) {
